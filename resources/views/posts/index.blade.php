@@ -108,6 +108,8 @@
 
                 @endforeach
 
+                {{ $posts->links() }}
+
             </div>
         </main>
     </div>
