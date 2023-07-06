@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(){
+    //page qui contient tout les postes
+    public function index(): View
+    {
         // $posts = Post::all(); recupere tout les posts dans l'ordre croissant de leur Id
         $posts = Post::latest()->paginate(7); // pour recuperer dans l'ordre du plus recent post au moins recent
 
@@ -16,6 +19,13 @@ class PostController extends Controller
 
             //ceci nous permet de recuperer une variable posts qu'on pourra utiliser dans notre html pour faire une boucle et afficher nos posts
             'posts' => $posts,
+        ]);
+    }
+
+    public function show(Post $post): View
+    {
+        return view('posts.show', [
+            'post' => $post,
         ]);
     }
 }

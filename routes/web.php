@@ -16,3 +16,5 @@ use App\Http\Controllers\PostController;
 
 // [controller a utilisé, 'nom de la methode a utilise dans le controller']->name('nom de la route)
 Route::get('/', [PostController::class, 'index'])->name('index');
+
+Route::get('/{post}', [PostController::class, 'show'])->name('posts.show');
