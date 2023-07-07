@@ -37,7 +37,7 @@
 
         @else
 
-        <time class="text-xs text-slate-400" datetime="{{ $post->created_at }}" >{{ $post->created_at }}</time>
+        <time class="text-xs text-slate-400" datetime="{{ $post->created_at }}" >@datetime($post->created_at)</time>
             
         @endif
 
