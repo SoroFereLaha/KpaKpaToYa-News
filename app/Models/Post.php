@@ -10,6 +10,9 @@ class Post extends Model
 {
     use HasFactory;
 
+    //au lieu de faire plusieur requete pour recupere chaque category pour chaque article, il va faire une requete pour tout recuperer
+    protected $with = ['category'];
+
     public function getRouteKeyName(): string
     {
         return 'slug';
